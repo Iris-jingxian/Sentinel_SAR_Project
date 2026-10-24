@@ -1,7 +1,0 @@
-{
-    "version": "v1",
-    "task": "autofocus",
-    "train": ["sim_phase_ROI_1_complex"],
-    "val": ["sim_phase_ROI_2_complex"],
-    "test": ["sim_phase_ROI_3_complex"]
-}
