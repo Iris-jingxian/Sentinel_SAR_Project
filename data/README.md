@@ -6,3 +6,7 @@
 - Sentinel-1 SM SLC 产品路径
 - 仿真数据生成参数
 - 数据划分清单（训练/验证/测试）
+由于原始 SAR 图像及生成的散焦样本体积过大，我们在此处仅提供完整的数据生成参数与划分清单。复现时，请运行 `python/make_defocus_dataset.py` 生成对应的 `.mat` 数据。
+- `splits/`：按场景固定划分的训练/验证/测试清单
+- `manifests/`：各数据集的详细样本清单
+- `evaluation_results.csv`：自聚焦模型在独立测试集上的评估指标
