@@ -29,7 +29,7 @@ validateattributes(Fs, {'double'}, {'scalar','real','finite','positive'});
 
 %% 1. 找到相同观测、相同极化的 SLC XML
 % 强行指定 XML 路径
-xmlFile = 'C:\Users\Miss_\Desktop\Sentinel-L0条带\s1a-s2-slc-vh-20260621t014858-20260621t014917-065061-083350-001.xml'; 
+xmlFile = 'C:\Users\Miss_\Desktop\sar_data1\S1A_S2_SLC__1SDV_20250303T140022_20250303T140047_058141_072E7E_5C22.SAFE\annotation\s1a-s2-slc-vh-20250303t140022-20250303t140047-058141-072e7e-001.xml';
 swath = 'S2'; % 强行指定波束模式
 xml = readstruct(xmlFile);
 replicaInfo = xml.generalAnnotation.replicaInformationList.replicaInformation;
