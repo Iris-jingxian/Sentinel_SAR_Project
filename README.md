@@ -54,9 +54,15 @@
     *   *说明：5个分布在不同距离/方位位置的点目标，经RD算法处理后完美聚焦为清晰的十字星，无相互干扰。*
 *   📈 [-3dB 主瓣宽度剖面图 (`profile_3dB.jpg`)](results/profile_3dB.jpg)
     *   *说明：沿中心目标切取的距离向与方位向剖面图，精准标定 -3dB 阈值线与实测边界。*
-### 🎯 周三：基线生成与最小熵自聚焦
+### 🎯 周三：自聚焦基线验证
 
-* 🖼️ [相位误差注入生成散焦图 (`defocus_sample.jpg`)](results/defocus_sample.jpg)
-  * *说明：基于 `matlab_generate_defocus.m`，对恢复的真实 SAR 干净 ROI 沿方位向频域注入二次与三次相位误差（Q=10 rad），生成已知真值的散焦图像，用于测试自聚焦算法下限。*
-* 🖼️ [最小熵自聚焦恢复结果对比图 (`matlab_autofocus_compare.jpg`)](results/matlab_autofocus_compare.jpg)
-  * *说明：基于 `matlab_min_entropy_autofocus.m`，以“逐距离门能量加权熵”为目标函数，采用“一维粗网格搜索 + 二维 Nelder-Mead 精修”策略估计相位系数，完成频域相位补偿。结果显示散焦星点重新聚焦，且估计的 \(\alpha_2, \alpha_3\) 与注入真值高度吻合。*
+*   🖼️ [散焦样本生成脚本 (`matlab_generate_defocus.m`)(matlab/matlab_generate_defocus.m)
+    *   *说明：基于真实 Sentinel-1 SLC ROI 数据，在方位向频域注入已知的二次与三次相位误差（设定 Q=10 rad），构建带有先验参数的散焦图像样本。*
+*   🖼️ [最小熵自聚焦脚本 (`matlab_min_entropy_autofocus.m`)](matlab/matlab_min_entropy_autofocus.m)
+    *   *说明：采用“一维粗网格搜索 + Nelder-Mead (fminsearch) 精修”的两步策略。以距离向能量加权熵为目标函数，沿方位向迭代寻优，实现相位误差的精准反演与补偿。*
+*   🖼️ [散焦样本幅度图 (`defocus_sample.jpg`)](results/defocus_sample.jpg)
+    *   *说明：展示注入相位误差后的散焦图像。由于二次相位误差的影响，图像中的网格状地物（如田埂/道路）在方位向发生能量弥散，边缘纹理出现模糊与重影。*
+*   🖼️ [自聚焦前后对比图 (`selfocus_compare.jpg`)](results/selfocus_compare.jpg)
+    *   *说明：展示散焦输入（左）与最小熵补偿后（右）的对比。经算法处理后，原本模糊的线状目标重新锐化，能量得到完美收敛，显著提升了图像的空间分辨率与聚焦深度。*
+*   📉 [熵值收敛与参数反演曲线 (`entropy_convergence.jpg`)](results/entropy_convergence.jpg)
+    *   *说明：记录粗网格搜索的熵值变化趋势。优化结果（红色五角星）与真实注入值（绿色五角星）高度重合，验证了代价函数的光滑性及算法跳出局部最优的收敛精度。*v*
