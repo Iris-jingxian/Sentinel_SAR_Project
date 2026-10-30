@@ -45,11 +45,11 @@ validateattributes(numPulses, {'numeric'}, {'scalar','positive','real','nonnan'}
 assert(isinf(numPulses) || fix(numPulses) == numPulses, 'numPulses must be a positive integer or Inf.');
 toolDir = fileparts(mfilename('fullpath'));
 parser = inputParser;
-addParameter(parser, 'Polarization', 'HH');
+addParameter(parser, 'Polarization', 'VH');
 addParameter(parser, 'StartPulse', 1);
 addParameter(parser, 'CarrierFrequencyHz', 5.405e9);
 addParameter(parser, 'Chunk', []);
-addParameter(parser, 'Python', fullfile(toolDir, '.venv', 'Scripts', 'python.exe'));
+addParameter(parser, 'Python', 'C:\Users\Miss_\AppData\Local\Programs\Python\Python311\python.exe');
 addParameter(parser, 'OutputFile', '');
 addParameter(parser, 'Plot', true);
 addParameter(parser, 'LoadIntoMemory', true, @(x)islogical(x) && isscalar(x));
@@ -66,9 +66,9 @@ pol = upper(char(opt.Polarization));
 assert(ismember(pol, {'HH','HV','VV','VH'}), 'Use HH, HV, VV or VH.');
 
 if strlength(string(inputFile)) == 0
-    dataRoot = fullfile(fileparts(toolDir), '哨兵1号数据', '洛杉矶');
+    dataRoot = toolDir;
     pattern = ['s1a-s2-raw-s-' lower(pol) ...
-        '-20150109t014106-20150109t014141-004088-004f1f.dat'];
+        '-20250303t140022-20250303t140047-058141-072e7e.dat'];
     hits = dir(fullfile(dataRoot, '**', pattern));
     assert(numel(hits) == 1, 'Expected exactly one local measurement file. Pass inputFile explicitly.');
     inputFile = fullfile(hits(1).folder, hits(1).name);
@@ -149,3 +149,4 @@ assert(~any(ismember(value, [char(34), char(10), char(13), '%', '!'])), ...
     'Paths containing quotes, percent signs, exclamation marks or newlines are unsupported.');
 quoted = [char(34) value char(34)];
 end
+
