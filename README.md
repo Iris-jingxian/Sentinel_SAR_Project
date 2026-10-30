@@ -56,7 +56,7 @@
     *   *说明：沿中心目标切取的距离向与方位向剖面图，精准标定 -3dB 阈值线与实测边界。*
 ### 🎯 周三：自聚焦基线验证
 
-*   🖼️ [散焦样本生成脚本 (`matlab_generate_defocus.m`)(matlab/matlab_generate_defocus.m)
+*   🖼️ [散焦样本生成脚本 (`matlab_generate_defocus.m`)](matlab/matlab_generate_defocus.m)
     *   *说明：基于真实 Sentinel-1 SLC ROI 数据，在方位向频域注入已知的二次与三次相位误差（设定 Q=10 rad），构建带有先验参数的散焦图像样本。*
 *   🖼️ [最小熵自聚焦脚本 (`matlab_min_entropy_autofocus.m`)](matlab/matlab_min_entropy_autofocus.m)
     *   *说明：采用“一维粗网格搜索 + Nelder-Mead (fminsearch) 精修”的两步策略。以距离向能量加权熵为目标函数，沿方位向迭代寻优，实现相位误差的精准反演与补偿。*
