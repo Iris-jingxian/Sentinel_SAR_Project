@@ -3,7 +3,7 @@
 % MATLAB 内置 Tiff.read 不支持该复数格式,
 % 因此通过 Tiff 对象获取 strip 偏移量, 再用 fread 读原始字节并 typecast 为 int16。
 
-slc_dir = 'C:\Users\Miss_\Desktop\Sentinel-L0条带\S1A_S2_SLC__1SDV_20260621T014858_20260621T014917_065061_083350_FCA0.SAFE';
+slc_dir = 'C:\Users\Miss_\Desktop\sar_data1\S1A_S2_SLC__1SDV_20250303T140022_20250303T140047_058141_072E7E_5C22.SAFE';
 
 %% 1. 定位 TIFF 文件和 XML 文件
 d = dir(fullfile(slc_dir, 'measurement', '*.tiff'));
@@ -24,8 +24,8 @@ try
     nRows = str2double(xml_doc.getElementsByTagName('numberOfLines').item(0).getTextContent());
     nCols = str2double(xml_doc.getElementsByTagName('numberOfSamples').item(0).getTextContent());
 catch
-    nRows = 30749;
-    nCols = 20099;
+    nRows = 39297;
+    nCols = 20104;
     warning('从 XML 读取尺寸失败，已使用默认尺寸兜底。');
 end
 fprintf('图像真实尺寸: %d 行(脉冲数) x %d 列(采样数)\n', nRows, nCols);
