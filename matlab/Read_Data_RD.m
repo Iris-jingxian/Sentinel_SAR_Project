@@ -2,14 +2,14 @@ clear;clc;close all;
 %% -------- 数据读取 --------
 %% 参数
 Na                              = 8192;           % 方位向脉冲数(图像列跨幅), 2^13 利于FFT, 约覆盖场景1/4
-startPulse                      = 12035;          % 起始脉冲位置, 使方位向选取居中于完整成像区间(Na_all=32260)
+startPulse                      = 16067;          % 起始脉冲位置, 使方位向选取居中于完整成像区间(Na_all=40325)
 Nfast                           = 16384;          % 距离向点数(图像行跨幅), 居中截取距离幅宽
 fc                              = 5.405e9;
 C                               = 299792458;
 
 %% 方位选择
-inputFile = ['C:\Users\Miss_\Desktop\Sentinel-L0条带\S1A_S2_RAW__0SDV_20260621T014858_20260621T014918_065061_083350_A921.SAFE\' ...
-    's1a-s2-raw-s-vh-20260621t014858-20260621t014918-065061-083350.dat'];
+inputFile = ['C:\Users\Miss_\Desktop\sar_data1\S1A_S2_RAW__0SDV_20250303T140022_20250303T140047_058141_072E7E_7DD0.SAFE\' ...
+    's1a-s2-raw-s-vh-20250303t140022-20250303t140047-058141-072e7e.dat'];
 [echo, info] = read_s1_raw(inputFile, Na, ...
     'StartPulse', startPulse, ...
     'CarrierFrequencyHz', fc, ...
