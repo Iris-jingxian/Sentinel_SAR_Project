@@ -1,0 +1,429 @@
+{
+  "schema_version": 1,
+  "config": {
+    "version": 1,
+    "representation": "amplitude",
+    "window": 50,
+    "factor": 8,
+    "stride": 8,
+    "amax": 1000.0,
+    "lines_per_axis": 4,
+    "center_index": 25,
+    "interpolation": "linear_endpoint_preserving",
+    "label": "单方向截断各点目标主瓣后相干叠加取幅度；另一方向保留完整响应",
+    "source": "CN110333489A；项目幅度域实现约定，未认定与 GRSL 期刊版本逐项一致",
+    "network_shape": {
+      "input": [
+        "B",
+        1,
+        50
+      ],
+      "target": [
+        "B",
+        1
+      ]
+    },
+    "architecture_reference": {
+      "conv_kernels": [
+        30,
+        20,
+        15,
+        5
+      ],
+      "conv_channels": [
+        10,
+        10,
+        10,
+        3
+      ],
+      "stride": 1,
+      "padding": "same",
+      "pooling": false,
+      "dense_units": 100,
+      "output_units": 1,
+      "basis": "采用专利文字 [0108]-[0113]；图3将conv4画为10，与正文5不一致"
+    },
+    "project_choices": {
+      "factor": "本批第一零点间隔2像素，零点间主瓣宽4像素；8倍后约32像素",
+      "stride": "导出步长8以控制小样例体积；专利实施例为1",
+      "lines": "每轴最多3条经过已知目标的线，余量以场景种子补足到4条",
+      "target_scale": "标签沿用输入窗口峰值；不单独缩放或裁剪到amax",
+      "boundary": "只导出完整窗口；中心索引25，尚无预测的边界不计入输出"
+    }
+  },
+  "source_scene_count": 30,
+  "source_manifest_sha256": "21f2fd4b45eb49ec449b9eb68316b2f13e466d1835304b84b2f3619ac9c6cef2",
+  "split_policy": "严格继承源场景划分；同一源场景的全部方向、线和窗口属于同一集合",
+  "scene_counts": {
+    "train": 18,
+    "val": 6,
+    "test": 6
+  },
+  "window_counts": {
+    "train": 17424,
+    "val": 5808,
+    "test": 5808
+  },
+  "records": [
+    {
+      "scene_id": "B11_train_000",
+      "source_scene_id": "B11_train_000",
+      "split": "train",
+      "scenario": "single_point",
+      "file": "B11_train_000_SCNN滑窗.npz",
+      "window_count": 968,
+      "file_sha256": "bb6584043648a397c13b0e72b031b8d8aa19b5c16f4294c5872d91a0bb124c63",
+      "source_file_sha256": "472dfaae6c5dca9ba05c2e5370eb991a04c186a33cc86256e835af1e54e17e01",
+      "positive_target_count": 40,
+      "target_over_amax_count": 0
+    },
+    {
+      "scene_id": "B11_train_001",
+      "source_scene_id": "B11_train_001",
+      "split": "train",
+      "scenario": "multi_point",
+      "file": "B11_train_001_SCNN滑窗.npz",
+      "window_count": 968,
+      "file_sha256": "b6a10ce5dc544cb381e68872e037f62e4519bbf1a57f0185436065dd0d0c02b3",
+      "source_file_sha256": "0d92513104a6a8ccc205d8dd5cf3aeb32a3c31ca2128fa09314a84d827c80d26",
+      "positive_target_count": 124,
+      "target_over_amax_count": 1
+    },
+    {
+      "scene_id": "B11_train_002",
+      "source_scene_id": "B11_train_002",
+      "split": "train",
+      "scenario": "weak_near_strong",
+      "file": "B11_train_002_SCNN滑窗.npz",
+      "window_count": 968,
+      "file_sha256": "5a9c968305a927ce972e1d186f1004c564c22d1ec07fa78a69d126ac2dcedae2",
+      "source_file_sha256": "cd8889dfbb767279e3edbd647b611defa3239c19788f4f91cb4f9db283708c8a",
+      "positive_target_count": 120,
+      "target_over_amax_count": 1
+    },
+    {
+      "scene_id": "B11_train_003",
+      "source_scene_id": "B11_train_003",
+      "split": "train",
+      "scenario": "single_point",
+      "file": "B11_train_003_SCNN滑窗.npz",
+      "window_count": 968,
+      "file_sha256": "7ed084726e3c6c1b507b3af06b5eab04bbd048ea7a424ecb9021f495f391c94e",
+      "source_file_sha256": "0e6d16785b4955dd3a6957fe5f69df5811f5ff49495f5e3413a0386cc085ab30",
+      "positive_target_count": 40,
+      "target_over_amax_count": 1
+    },
+    {
+      "scene_id": "B11_train_004",
+      "source_scene_id": "B11_train_004",
+      "split": "train",
+      "scenario": "multi_point",
+      "file": "B11_train_004_SCNN滑窗.npz",
+      "window_count": 968,
+      "file_sha256": "4805f9b4e99d293bc0daa6357455c25d0992b1a308d1cb1c5e45786d71a76bba",
+      "source_file_sha256": "1c777a8449de127dbc1bfb0a9dcdd97758af07cbb424ffda73d5045b9e3887ed",
+      "positive_target_count": 160,
+      "target_over_amax_count": 3
+    },
+    {
+      "scene_id": "B11_train_005",
+      "source_scene_id": "B11_train_005",
+      "split": "train",
+      "scenario": "weak_near_strong",
+      "file": "B11_train_005_SCNN滑窗.npz",
+      "window_count": 968,
+      "file_sha256": "48e9e69bacfad958442062c2247364cc6039a72a90ac19d32afc7d6fad4e53d8",
+      "source_file_sha256": "118622b7c1d56d30b94dd360e14815ee79abe4e2874d40549d8dbda91ef17c02",
+      "positive_target_count": 112,
+      "target_over_amax_count": 4
+    },
+    {
+      "scene_id": "B11_train_006",
+      "source_scene_id": "B11_train_006",
+      "split": "train",
+      "scenario": "single_point",
+      "file": "B11_train_006_SCNN滑窗.npz",
+      "window_count": 968,
+      "file_sha256": "f24d768934e2d8e5fbc98be385b011777ab734af9a93400924ebba61858d6398",
+      "source_file_sha256": "f10e78fa4e3adb415203d0d1014ea42a4a3ac9c7124ff0cc2a2bedb92fe408af",
+      "positive_target_count": 40,
+      "target_over_amax_count": 3
+    },
+    {
+      "scene_id": "B11_train_007",
+      "source_scene_id": "B11_train_007",
+      "split": "train",
+      "scenario": "multi_point",
+      "file": "B11_train_007_SCNN滑窗.npz",
+      "window_count": 968,
+      "file_sha256": "33092ad3c04e56347bbea8d524c8575dd1eefc7d8a26e197cc0138732d92692e",
+      "source_file_sha256": "984f573e34c4d252f4c130ffd82437a109e6675c5aaf1853f12200e4ec13ba8d",
+      "positive_target_count": 144,
+      "target_over_amax_count": 2
+    },
+    {
+      "scene_id": "B11_train_008",
+      "source_scene_id": "B11_train_008",
+      "split": "train",
+      "scenario": "weak_near_strong",
+      "file": "B11_train_008_SCNN滑窗.npz",
+      "window_count": 968,
+      "file_sha256": "6d09c9a4ed70b62ece6206cb61b54695bf087d32e8201ca1b1b2033dc8381e94",
+      "source_file_sha256": "8cd63a725ebebfeb17fb212923a31fa1035a06774edb614a1a130561ab70cd44",
+      "positive_target_count": 108,
+      "target_over_amax_count": 4
+    },
+    {
+      "scene_id": "B11_train_009",
+      "source_scene_id": "B11_train_009",
+      "split": "train",
+      "scenario": "single_point",
+      "file": "B11_train_009_SCNN滑窗.npz",
+      "window_count": 968,
+      "file_sha256": "033f2fedc6f8d9e6575183750f87a045a113b0c0ff5a2103ef705243343afe75",
+      "source_file_sha256": "b2b47e3b3e48b9093c63bede60b1749463ce97e6f59b9a024c477718d7dd14e8",
+      "positive_target_count": 40,
+      "target_over_amax_count": 1
+    },
+    {
+      "scene_id": "B11_train_010",
+      "source_scene_id": "B11_train_010",
+      "split": "train",
+      "scenario": "multi_point",
+      "file": "B11_train_010_SCNN滑窗.npz",
+      "window_count": 968,
+      "file_sha256": "0f8669e637e1866452ffd0876db106f696b4dfa95ad37694215519541b2c0bb2",
+      "source_file_sha256": "e71a88beeb986ff2b58c0416f17fda980e67e9915f91c9ac3fbd0f9e219db4a8",
+      "positive_target_count": 144,
+      "target_over_amax_count": 0
+    },
+    {
+      "scene_id": "B11_train_011",
+      "source_scene_id": "B11_train_011",
+      "split": "train",
+      "scenario": "weak_near_strong",
+      "file": "B11_train_011_SCNN滑窗.npz",
+      "window_count": 968,
+      "file_sha256": "cb1235ead1f6a98e1aa9e0a31ba02f279c53b7429936169cac36bb963603dc39",
+      "source_file_sha256": "5e7dba8b9b4e7afd514eaf5f295670138df2e24003a7d70cf4fad7b8073ea20b",
+      "positive_target_count": 108,
+      "target_over_amax_count": 1
+    },
+    {
+      "scene_id": "B11_train_012",
+      "source_scene_id": "B11_train_012",
+      "split": "train",
+      "scenario": "single_point",
+      "file": "B11_train_012_SCNN滑窗.npz",
+      "window_count": 968,
+      "file_sha256": "9ea2513a259e8a2303c15374988125b3ae80e4ba64f7b313427ce2c4ff7c1c90",
+      "source_file_sha256": "249592f9b06972e2c84267e8c2f9e9604fafe9e9a3d8898b0b90dbf273def50d",
+      "positive_target_count": 40,
+      "target_over_amax_count": 1
+    },
+    {
+      "scene_id": "B11_train_013",
+      "source_scene_id": "B11_train_013",
+      "split": "train",
+      "scenario": "multi_point",
+      "file": "B11_train_013_SCNN滑窗.npz",
+      "window_count": 968,
+      "file_sha256": "48d3dca20750dfda18c4232184aafca4687c0a6958c77a7f97fd8e598e86aa8d",
+      "source_file_sha256": "f31b2013843c3daf98fa2213ae1a6287365df96d73b4fa1237e6aadab8531746",
+      "positive_target_count": 156,
+      "target_over_amax_count": 0
+    },
+    {
+      "scene_id": "B11_train_014",
+      "source_scene_id": "B11_train_014",
+      "split": "train",
+      "scenario": "weak_near_strong",
+      "file": "B11_train_014_SCNN滑窗.npz",
+      "window_count": 968,
+      "file_sha256": "c4e4239051023cdb88a74b5b7545a9dbc3aee6e0d9e25e95b1a007f64aea3752",
+      "source_file_sha256": "111fc3c73729adce0b95745c03437a7781ed31bcc9d6a7842cd6b39d77d20d54",
+      "positive_target_count": 104,
+      "target_over_amax_count": 4
+    },
+    {
+      "scene_id": "B11_train_015",
+      "source_scene_id": "B11_train_015",
+      "split": "train",
+      "scenario": "single_point",
+      "file": "B11_train_015_SCNN滑窗.npz",
+      "window_count": 968,
+      "file_sha256": "f4ecf420721fdda57a986d12b0bb44365459145c7a65b521df801b672cbe9e9a",
+      "source_file_sha256": "e5240eb1a18462b05dfd61d9a566d0e087475f2cb1ff31197f63c348d2a027d6",
+      "positive_target_count": 40,
+      "target_over_amax_count": 1
+    },
+    {
+      "scene_id": "B11_train_016",
+      "source_scene_id": "B11_train_016",
+      "split": "train",
+      "scenario": "multi_point",
+      "file": "B11_train_016_SCNN滑窗.npz",
+      "window_count": 968,
+      "file_sha256": "60ff6b1238712c7f11abd6f25d6ccc5fab1a158bcba0f5b0481e60054ede5c21",
+      "source_file_sha256": "6745829ee24b73d9dd6ed7c5be12c2f9b57ad27d27b6c237b074ddd050f72563",
+      "positive_target_count": 160,
+      "target_over_amax_count": 3
+    },
+    {
+      "scene_id": "B11_train_017",
+      "source_scene_id": "B11_train_017",
+      "split": "train",
+      "scenario": "weak_near_strong",
+      "file": "B11_train_017_SCNN滑窗.npz",
+      "window_count": 968,
+      "file_sha256": "db61de09670bbf19ae48aae7a25a2286efc11dd7991b38f36d2ef43cc7656d24",
+      "source_file_sha256": "bbdfc405fa0d3ed463c8b047c5a3333f97a3244d04a0eddae06bdd454490a974",
+      "positive_target_count": 112,
+      "target_over_amax_count": 0
+    },
+    {
+      "scene_id": "B11_val_000",
+      "source_scene_id": "B11_val_000",
+      "split": "val",
+      "scenario": "single_point",
+      "file": "B11_val_000_SCNN滑窗.npz",
+      "window_count": 968,
+      "file_sha256": "b12cbd6c40f291e9aa977b88d83cece204c8f67885f4d9304cd1bb408ff96413",
+      "source_file_sha256": "9e2e7fbeafb80e0fe6ff93013e2f13cdba5a3b554a01918f8c84a50a213e958d",
+      "positive_target_count": 40,
+      "target_over_amax_count": 2
+    },
+    {
+      "scene_id": "B11_val_001",
+      "source_scene_id": "B11_val_001",
+      "split": "val",
+      "scenario": "multi_point",
+      "file": "B11_val_001_SCNN滑窗.npz",
+      "window_count": 968,
+      "file_sha256": "f6d39622efa042ba5b1ee8ed562f90dbf912b74f06a1ed680f3562ed7be84511",
+      "source_file_sha256": "ade424ae5ad032d356d5b2fb67f366a2e20228164cc4eb60134161445e39de0f",
+      "positive_target_count": 152,
+      "target_over_amax_count": 6
+    },
+    {
+      "scene_id": "B11_val_002",
+      "source_scene_id": "B11_val_002",
+      "split": "val",
+      "scenario": "weak_near_strong",
+      "file": "B11_val_002_SCNN滑窗.npz",
+      "window_count": 968,
+      "file_sha256": "64afd1a46e5db127662431a1573dc27389c4b24ed5d16ea4d6488a68a2592fdb",
+      "source_file_sha256": "01f9a0c8ccd910b07ff7a5ddb5f08494cd20479898050069b574c176b243c994",
+      "positive_target_count": 116,
+      "target_over_amax_count": 5
+    },
+    {
+      "scene_id": "B11_val_003",
+      "source_scene_id": "B11_val_003",
+      "split": "val",
+      "scenario": "single_point",
+      "file": "B11_val_003_SCNN滑窗.npz",
+      "window_count": 968,
+      "file_sha256": "57b9fb7b84b0fd2b5bec3e6187c05e3bd820c9b494edb23a1b89de589184d428",
+      "source_file_sha256": "938a97d1958aa9f033689188c514159444c186580f19b22070fc77cfcdd59a8b",
+      "positive_target_count": 40,
+      "target_over_amax_count": 4
+    },
+    {
+      "scene_id": "B11_val_004",
+      "source_scene_id": "B11_val_004",
+      "split": "val",
+      "scenario": "multi_point",
+      "file": "B11_val_004_SCNN滑窗.npz",
+      "window_count": 968,
+      "file_sha256": "189b739d7a0cb66c0feff67c67fbe9088b145f4f6713aaea607f06e4dae339e5",
+      "source_file_sha256": "81be6cc631e50de049d0c8b54e2b61bcb7f628adfa1ee97c197ded5d10ac010b",
+      "positive_target_count": 144,
+      "target_over_amax_count": 3
+    },
+    {
+      "scene_id": "B11_val_005",
+      "source_scene_id": "B11_val_005",
+      "split": "val",
+      "scenario": "weak_near_strong",
+      "file": "B11_val_005_SCNN滑窗.npz",
+      "window_count": 968,
+      "file_sha256": "782b9cd8c3f5369c24ddef78fc2fcb665ee3b71845e7048d869926a302a3303d",
+      "source_file_sha256": "9d751fbe89f34a4de952c8b5c895a17264778c160bd4be1c27ea918a51b713bb",
+      "positive_target_count": 116,
+      "target_over_amax_count": 1
+    },
+    {
+      "scene_id": "B11_test_000",
+      "source_scene_id": "B11_test_000",
+      "split": "test",
+      "scenario": "single_point",
+      "file": "B11_test_000_SCNN滑窗.npz",
+      "window_count": 968,
+      "file_sha256": "8044fea88743451fbdee0623c40b8c1714630e6b28670c02147e1c94da78ba09",
+      "source_file_sha256": "dbd884f4849e406f2df98d631d0941a55f319e933672f09f40362a1dbfcba126",
+      "positive_target_count": 40,
+      "target_over_amax_count": 0
+    },
+    {
+      "scene_id": "B11_test_001",
+      "source_scene_id": "B11_test_001",
+      "split": "test",
+      "scenario": "multi_point",
+      "file": "B11_test_001_SCNN滑窗.npz",
+      "window_count": 968,
+      "file_sha256": "7b7082dc8e107e82c80d8ed0c79aa579a25be0f0840e55e58c60233488503b0e",
+      "source_file_sha256": "90acd5b826f9143fdc0c1ccc99c822d8bb67fd0912233d9ba2bf2c9738915fa9",
+      "positive_target_count": 160,
+      "target_over_amax_count": 5
+    },
+    {
+      "scene_id": "B11_test_002",
+      "source_scene_id": "B11_test_002",
+      "split": "test",
+      "scenario": "weak_near_strong",
+      "file": "B11_test_002_SCNN滑窗.npz",
+      "window_count": 968,
+      "file_sha256": "cb39e0245cc3deaf35833fc64993e1b6f4234f4869f8937f0cc965e098a03acd",
+      "source_file_sha256": "63d091b7cda927b6943d003f16cc7ee5788c80f51eef65adb7dbb63adf9d5183",
+      "positive_target_count": 100,
+      "target_over_amax_count": 3
+    },
+    {
+      "scene_id": "B11_test_003",
+      "source_scene_id": "B11_test_003",
+      "split": "test",
+      "scenario": "single_point",
+      "file": "B11_test_003_SCNN滑窗.npz",
+      "window_count": 968,
+      "file_sha256": "99e33ffe87a7f4bd520429ad0308fdc720c28053c2d7afb6e28d4a4b444d2099",
+      "source_file_sha256": "537bdef418eff50dab36207c64313059f1b0b0896d23336a12a3feca3d499e9b",
+      "positive_target_count": 40,
+      "target_over_amax_count": 1
+    },
+    {
+      "scene_id": "B11_test_004",
+      "source_scene_id": "B11_test_004",
+      "split": "test",
+      "scenario": "multi_point",
+      "file": "B11_test_004_SCNN滑窗.npz",
+      "window_count": 968,
+      "file_sha256": "820b1499d940018e1f61d4a63bb77291b6d5785d7cbae796ae814e5fef8be37a",
+      "source_file_sha256": "b771d66c57455f9639c30e774c1e17cfdd6e25ef36ef192f99748f9b0daa1449",
+      "positive_target_count": 160,
+      "target_over_amax_count": 5
+    },
+    {
+      "scene_id": "B11_test_005",
+      "source_scene_id": "B11_test_005",
+      "split": "test",
+      "scenario": "weak_near_strong",
+      "file": "B11_test_005_SCNN滑窗.npz",
+      "window_count": 968,
+      "file_sha256": "67831519ca7f339e0d844e84291be0cf53558d28e214d9da1bb11058bf33a967",
+      "source_file_sha256": "390f83116a0f2f29031f02a6393be1863adbc69abfacc8ddf5e4106f9facad31",
+      "positive_target_count": 92,
+      "target_over_amax_count": 3
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "source_scenes": 30,
+  "checked_windows": 29040,
+  "window_counts": {
+    "train": 17424,
+    "val": 5808,
+    "test": 5808
+  },
+  "scope": "仿真幅度滑窗、单方向标签、来源划分及中心坐标；不含训练或真实RSVA运行"
+}
