@@ -1,0 +1,41 @@
+{
+  "seed": 77,
+  "epochs": 20,
+  "batch_size": 256,
+  "learning_rate": 0.001,
+  "weight_decay": 1e-05,
+  "dropout": 0.1,
+  "device": "cpu",
+  "torch": "2.8.0+cpu",
+  "python": "3.13.7",
+  "manifest_sha256": "25fca310d95039b795cbcac43cb12fb951b827be7d7931505d4905741af1573f",
+  "train_scenes": [
+    "B11_train_000",
+    "B11_train_001",
+    "B11_train_002",
+    "B11_train_003",
+    "B11_train_004",
+    "B11_train_005",
+    "B11_train_006",
+    "B11_train_007",
+    "B11_train_008",
+    "B11_train_009",
+    "B11_train_010",
+    "B11_train_011",
+    "B11_train_012",
+    "B11_train_013",
+    "B11_train_014",
+    "B11_train_015",
+    "B11_train_016",
+    "B11_train_017"
+  ],
+  "val_scenes": [
+    "B11_val_000",
+    "B11_val_001",
+    "B11_val_002",
+    "B11_val_003",
+    "B11_val_004",
+    "B11_val_005"
+  ],
+  "selection": "minimum validation balanced MSE; test evaluated once after selection"
+}
