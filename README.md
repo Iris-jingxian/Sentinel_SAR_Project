@@ -22,7 +22,7 @@
 *   **底层解码与 RD 成像代码**：
     *   [Python 解码脚本](python/decode_s1_raw.py) | [导航解析脚本](python/decode_s1_navigation.py)
     *   [RD 成像主程序](matlab/Read_Data_RD.m) | [L0 读取函数](matlab/read_s1_raw.m)
-*   🔗 [真实场景 RD 成像结果](results/RD_SM.jpg)
+*   🔗 [真实场景 RD 成像结果](results/RD_SM(1).jpg)
     *   *说明：成功解码 Sentinel-1 L0 RAW 原始回波数据，并跑通距离多普勒（RD）算法生成的聚焦图像。*
 *   🔗 [点目标仿真结果](results/sim_point_RD.jpg)
     *   *说明：理想单点目标经过 RD 算法聚焦后的二维冲激响应图（十字星），验证了算法在距离向与方位向的聚焦正确性。*
